@@ -7,9 +7,21 @@ type Mutation {
     price: Int, 
     image: String, 
     largeImage: String
-  ): Item!
+  ): Item!,
+
+  updateItem(
+    id: ID!,
+    title: String, 
+    description: String, 
+    price: Int
+  ): Item!,
+
+  deleteItem(
+    id: ID!
+  ) : Item
 }
 
 type Query {
-  items: [Item]!
+  items: [Item]!,
+  item(where: ItemWhereUniqueInput!): Item
 }
