@@ -51,7 +51,7 @@ exports[`<Item/> renders and matches the snapshot 1`] = `
     <DeleteItem
       id="ABC123"
     >
-      Delete This Item
+      Delete this item
     </DeleteItem>
   </div>
 </ItemStyles__Item>
