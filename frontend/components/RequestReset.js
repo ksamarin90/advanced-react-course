@@ -12,7 +12,7 @@ const REQUEST_RESET_MUTATION = gql`
   }
 `;
 
-class Signin extends Component {
+class RequestReset extends Component {
   state = {
     email: '',
   }
@@ -29,18 +29,18 @@ class Signin extends Component {
       >
         {(reset, {loading, error, called}) => {
           return (
-            <Form method="post" onSubmit={async (e) => {
+            <Form data-test="form" method="post" onSubmit={async (e) => {
               e.preventDefault();
               const res = await reset();
               this.setState({email: ''});
             }}>
               <fieldset disabled={loading} aria-busy={loading}>
-                <h2>Request a Passwaord Reset</h2>
+                <h2>Request a Password Reset</h2>
                 <Error error={error} />
                 {!error && !loading && called && <p>Success! Check your email for a reset link.</p>}
                 <label htmlFor="email">
                   Email
-            <input type="email" name="email" placeholder="email" value={this.state.email} onChange={this.saveToState} />
+                  <input type="email" name="email" placeholder="email" value={this.state.email} onChange={this.saveToState} />
                 </label>
 
                 <button type="submit">Reset Password</button>
@@ -53,4 +53,5 @@ class Signin extends Component {
   }
 }
 
-export default Signin;
+export default RequestReset;
+export { REQUEST_RESET_MUTATION };
