@@ -37,7 +37,6 @@ class Signin extends Component {
             <Form method="post" onSubmit={async (e) => {
               e.preventDefault();
               const res = await signin();
-              console.log(res);
               this.setState({name: '', email: '', password: ''});
             }}>
               <fieldset disabled={loading} aria-busy={loading}>
